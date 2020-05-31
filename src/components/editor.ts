@@ -18,6 +18,22 @@ export class NoteEditor extends LitElement {
   ) => void = this.save;
   @property({ type: Boolean }) saveMessageHidden: boolean = true;
 
+  connectedCallback() {
+    super.connectedCallback();
+    console.log("connected");
+
+    const url = window.location.href;
+    chrome.storage.sync.get([url], (result) => {
+      console.log(result);
+      const data = result[url];
+      if (data) {
+        const parsed = JSON.parse(data);
+        console.log(parsed);
+        this.text = parsed["text"] as string;
+      }
+    });
+  }
+
   static get styles() {
     return css`
       .atcoder-note-editor-area {
@@ -74,11 +90,9 @@ export class NoteEditor extends LitElement {
   render() {
     return html`
       <div class="atcoder-note-editor-area">
-        <textarea
-          id="atcoder-note-textarea"
-          class="atcoder-note-editor"
-          value="${this.text}"
-        ></textarea>
+        <textarea id="atcoder-note-textarea" class="atcoder-note-editor">
+${this.text}</textarea
+        >
         <div class="atcoder-note-editor-buttom-toolbar">
           <span
             class="success-message ${this.saveMessageHidden ? "hidden" : ""}"
