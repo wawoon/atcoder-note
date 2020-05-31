@@ -17,6 +17,9 @@
     "scripts": ["background.js"],
     "persistent": false
   },
+  "content_scripts": [
+    { "matches": ["https://atcoder.jp/*"], "js": ["content_scripts.js"] }
+  ],
   "icons": {
     "16": "images/get_started16.png",
     "32": "images/get_started32.png",
