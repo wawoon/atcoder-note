@@ -13,7 +13,7 @@ chrome.runtime.onInstalled.addListener(function () {
       {
         conditions: [
           new chrome.declarativeContent.PageStateMatcher({
-            pageUrl: { hostEquals: "developer.chrome.com" },
+            pageUrl: { hostEquals: "atcoder.jp" },
           }),
         ],
         actions: [new chrome.declarativeContent.ShowPageAction()],
