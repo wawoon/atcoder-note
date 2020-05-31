@@ -1,0 +1,8 @@
+{
+  "name": "atcoder-note",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:wawoon/atcoder-note.git",
+  "author": "Yoshinori Kosaka <yoshinori.kosaka@welyco.com>",
+  "license": "MIT"
+}
