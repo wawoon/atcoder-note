@@ -7,7 +7,7 @@ export class NoteEditor extends LitElement {
     const data = JSON.stringify({ text });
     chrome.storage.sync.set({ [url]: data }, () => {
       this.saveMessageHidden = false;
-      setTimeout(() => (this.saveMessageHidden = true), 2000);
+      setTimeout(() => (this.saveMessageHidden = true), 2500);
     });
   };
 
@@ -60,11 +60,8 @@ export class NoteEditor extends LitElement {
       }
 
       .hidden {
-        /* 「.boxの opacity が状態変化する」という指定 */
         transition-property: opacity;
         transition-duration: 0.5s;
-
-        /* .boxの初期状態を指定 */
         opacity: 0;
       }
     `;
