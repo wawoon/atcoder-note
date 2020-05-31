@@ -6,19 +6,26 @@ export class NoteEditor extends LitElement {
 
   static get styles() {
     return css`
+      .atcoder-note-editor-area {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
       .atcoder-note-editor {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 3px;
         padding: 8px;
-        margin: 8px 0;
-        border: 1px solid #aaa;
-        border-radius: 6px;
+        box-sizing: border-box;
+        resize: vertical;
       }
     `;
   }
 
   render() {
     return html`
-      <div class="atcoder-note-editor">
-        <textarea value="${this.text}"></textarea>
+      <div class="atcoder-note-editor-area">
+        <textarea class="atcoder-note-editor" value="${this.text}"></textarea>
       </div>
     `;
   }

@@ -6,6 +6,7 @@
   "author": "Yoshinori Kosaka <yoshinori.kosaka@welyco.com>",
   "license": "MIT",
   "dependencies": {
+    "@webcomponents/custom-elements": "^1.4.1",
     "lit-element": "^2.3.1",
     "webextension-polyfill-ts": "^0.16.0"
   },
