@@ -19,15 +19,10 @@ window.onload = function () {
 
     // @ts-ignore
     let color = element.target.value;
-    console.log(color);
-    console.log(changeColor);
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       // @ts-ignore
       chrome.tabs.executeScript(tabs[0].id, {
-        code:
-          'console.log("helloworld");document.body.style.backgroundColor = "' +
-          color +
-          '";',
+        code: 'document.body.style.backgroundColor = "' + color + '";',
       });
     });
   };

@@ -6,7 +6,6 @@ export class NoteEditor extends LitElement {
     const url = window.location.href;
     const data = JSON.stringify({ text });
     chrome.storage.sync.set({ [url]: data }, () => {
-      console.log("saved", data);
       this.saveMessageHidden = false;
       setTimeout(() => (this.saveMessageHidden = true), 2000);
     });
@@ -20,15 +19,12 @@ export class NoteEditor extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    console.log("connected");
 
     const url = window.location.href;
     chrome.storage.sync.get([url], (result) => {
-      console.log(result);
       const data = result[url];
       if (data) {
         const parsed = JSON.parse(data);
-        console.log(parsed);
         this.text = parsed["text"] as string;
       }
     });
@@ -81,10 +77,7 @@ export class NoteEditor extends LitElement {
 
     if (textarea.value) {
       this.onSave(textarea.value);
-    } else {
-      console.log("text editorが見つかりませんでした", textarea);
     }
-    // const text = event.target.value;
   };
 
   render() {
